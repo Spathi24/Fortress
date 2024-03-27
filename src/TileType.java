@@ -39,6 +39,7 @@ public class TileType {
     // Override toString() method for debugging purposes
     @Override
     public String toString() {
+
         return "TileType{" +
                 "name='" + name + '\'' +
                 ", movementCost=" + movementCost +
