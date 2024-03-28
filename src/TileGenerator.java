@@ -7,22 +7,19 @@ public class TileGenerator {
     private static final double SCALE = 0.1; // Adjust the scale to control the terrain roughness
     private static final long SEED = 0;
     private static final double SEA_LEVEL = -0.2; // Threshold for determining water vs land
-    private final int width;
-    private final int height;
+    private static final int width = 50;
+    private static final int height = 50;
     private final TileType[] tileTypes;
-    private final Tile[][] worldMap;
+    private static final Tile[][] worldMap = new Tile[width][height];
     private final Random random;
 
-    public TileGenerator(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public TileGenerator() {
         this.tileTypes = new TileType[]{
                 new TileType("Grass", 1, true),
                 new TileType("Mountain", 3, false),
                 new TileType("Water", 99, false)
                 // Add more tile types as needed
         };
-        this.worldMap = new Tile[width][height];
         this.random = new Random();
     }
 
@@ -68,6 +65,16 @@ public class TileGenerator {
         return worldMap;
     }
 
+    // Method to retrieve a tile by coordinates
+    public static Tile getTileAt(int x, int y) {
+        if (x >= 0 && x < worldMap.length && y >= 0 && y < worldMap[0].length) {
+            return worldMap[x][y];
+        } else {
+            // Handle out-of-bounds coordinates or null world map
+            return null;
+        }
+    }
+
     public void printWorld() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -79,9 +86,7 @@ public class TileGenerator {
 
     public static void main(String[] args) throws IOException {
 
-        int width = 50;
-        int height = 50;
-        TileGenerator generator = new TileGenerator(width, height);
+        TileGenerator generator = new TileGenerator();
         generator.generateWorld();
         generator.printWorld();
     }

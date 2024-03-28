@@ -3,6 +3,7 @@ public class Tile {
     private int x;
     private int y;
     private TileType type;
+    private boolean hasHuman;
     // Add more properties as needed, such as terrain type, resources, etc.
 
     // Constructor
@@ -10,6 +11,7 @@ public class Tile {
         this.x = x;
         this.y = y;
         this.type = type;
+        this.hasHuman = false;
     }
 
     // Getters and setters
@@ -35,6 +37,12 @@ public class Tile {
 
     public void setType(TileType type) {
         this.type = type;
+    }
+    public void setHasHuman(boolean occ){
+        hasHuman = occ;
+    }
+    public boolean hasHuman(){
+        return hasHuman;
     }
 
     // Add more getters and setters for other properties as needed

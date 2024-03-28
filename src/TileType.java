@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class TileType {
     private String name;
     private int movementCost;
@@ -46,6 +48,20 @@ public class TileType {
                 ", isPassable=" + isPassable +
                 '}';
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        TileType other = (TileType) obj;
+        return Objects.equals(name, other.name);
+    }
+
 }
 
 
