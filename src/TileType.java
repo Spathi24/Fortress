@@ -1,4 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 public class TileType {
     private String name;
@@ -37,6 +40,7 @@ public class TileType {
     public void setPassable(boolean passable) {
         isPassable = passable;
     }
+
 
     // Override toString() method for debugging purposes
     @Override
